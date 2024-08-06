@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.virtualenv
+.venv
+env
+venv
+ENV
+.vscode/
+*.log
+*.sqlite3
+ alembic.db
