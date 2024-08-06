@@ -1,0 +1,95 @@
+{
+    "app/main.py": {
+        "description": "Main entry point for the FastAPI application. Sets up the application, defines routes, and starts the server.",
+        "dependencies": {
+            "app/routers/__init__.py": [
+                "router"
+            ],
+            "app/db/session.py": [
+                "Session"
+            ]
+        },
+        "exposes": [
+            "app"
+        ]
+    },
+    "app/routers/__init__.py": {
+        "description": "Router initialization for the FastAPI application.",
+        "dependencies": {
+            "app/routers/example.py": [
+                "router"
+            ]
+        },
+        "exposes": [
+            "router"
+        ]
+    },
+    "app/routers/example.py": {
+        "description": "Defines routes for example URL endpoints.",
+        "dependencies": {
+            "app/services/example_service.py": [
+                "ExampleService"
+            ]
+        },
+        "exposes": [
+            "router"
+        ]
+    },
+    "app/services/__init__.py": {
+        "description": "Service initialization for the FastAPI application.",
+        "exposes": [
+            "ExampleService"
+        ]
+    },
+    "app/services/example_service.py": {
+        "description": "Provides business logic for the example routes.",
+        "dependencies": {
+            "app/db/models.py": [
+                "ExampleModel"
+            ]
+        },
+        "exposes": [
+            "ExampleService"
+        ]
+    },
+    "app/db/__init__.py": {
+        "description": "Database initialization for the FastAPI application.",
+        "exposes": [
+            "Base",
+            "Session"
+        ]
+    },
+    "app/db/models.py": {
+        "description": "Defines database models for data persistence using SQLAlchemy.",
+        "exposes": [
+            "ExampleModel",
+            "Base"
+        ]
+    },
+    "app/db/session.py": {
+        "description": "Sets up the database session using SQLAlchemy.",
+        "dependencies": {
+            "app/db/models.py": [
+                "Base"
+            ]
+        },
+        "exposes": [
+            "Session"
+        ]
+    },
+    "requirements.txt": {
+        "description": "List of project dependencies, including FastAPI and SQLAlchemy."
+    },
+    "alembic.ini": {
+        "description": "Configuration file for Alembic database migrations."
+    },
+    "alembic/env.py": {
+        "description": "Environment configuration for Alembic database migrations."
+    },
+    ".gitignore": {
+        "description": ".gitignore with virtual environment and cache files"
+    },
+    "run.sh": {
+        "description": "bash run script, should: install Python, init a project, install FastAPI and required dependencies, create database, and start the server"
+    }
+}
